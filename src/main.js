@@ -1,8 +1,19 @@
-import Vue from 'vue'
-import App from './App.vue'
+import imagePreview from './components/imagePreview'
+import './assets/font/iconfont.css'
 
-Vue.config.productionTip = false
+const install = Vue => {
+  if (install.installed) return
+  Vue.component('imagePreview', imagePreview)
+}
 
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+if (window && window.Vue) {
+  install(window.Vue)
+}
+
+export default {
+  install
+}
+
+export {
+  imagePreview
+}
